@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './MultiSelectDropdown.css';
 
-function MultiSelectDropdown({ options, selected, setSelected, label }) {
+function MultiSelectDropdown({ options, selected, setSelected }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 

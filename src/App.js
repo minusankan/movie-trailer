@@ -19,7 +19,7 @@ function App() {
   const [selectedLanguages, setSelectedLanguages] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortCriteria, setSortCriteria] = React.useState("newest");
+  const [sortCriteria, setSortCriteria] = useState("newest");
   const [moviesToShow, setMoviesToShow] = useState(20);
 
   //Selected Movie
