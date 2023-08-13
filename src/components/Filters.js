@@ -21,6 +21,7 @@ const Filters = ({
         <select
           value={sortCriteria}
           onChange={(e) => setSortCriteria(e.target.value)}
+          className="filter-padding"
         >
           <option value="newest">Newest First</option>
           <option value="oldest">Oldest First</option>
@@ -56,14 +57,17 @@ const Filters = ({
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Search by title..."
+          className="filter-padding"
         />
       </div>
 
       <div className="filter">
-        <button onClick={onClearAll}>Clear All Filters</button>
+        <button onClick={onClearAll} className="filter-padding">
+          Clear All Filters
+        </button>
       </div>
     </div>
   );
-}
+};
 
 export default Filters;

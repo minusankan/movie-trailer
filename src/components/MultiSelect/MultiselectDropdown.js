@@ -45,8 +45,10 @@ function MultiSelectDropdown({ options, selected, setSelected, label }) {
                 type="checkbox"
                 checked={selected.includes(option)}
                 onChange={() => handleOptionClick(option)}
+                id={option}
+                name={option}
               />
-              {option}
+              <label for={option}> {option}</label>
             </div>
           ))}
         </div>

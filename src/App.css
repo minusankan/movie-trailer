@@ -1,4 +1,10 @@
 /* Basic Reset */
+
+body{
+  height: 100vh;
+  background-color: lightgoldenrodyellow;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +17,7 @@
   margin: 0 auto;
   padding: 20px;
 }
+
 
 /* Header styles */
 .header {
@@ -46,6 +53,10 @@
 
 .infinite-scroll-component {
   overflow: hidden !important;
+}
+
+.filter-padding {
+  padding: 10px;
 }
 
 /* Movie List styles */
@@ -201,12 +212,7 @@
   color: #ffffff;
   border-radius: 5px;
   font-size: 14px;
-  cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-.tag:hover {
-  background-color: grey;
 }
 
 /* Error */
