@@ -9,10 +9,11 @@ import MovieTrailerPopup from "./components/MovieTrailerPopup";
 import "./App.css";
 
 function App() {
-
   const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
   //Filtered Data
-  const  [filtereddata, setFiltereddata] = useState(null);
+  const [filtereddata, setFiltereddata] = useState(null);
 
   //Filters
   const [selectedLanguages, setSelectedLanguages] = useState([]);
@@ -26,17 +27,25 @@ function App() {
 
   useEffect(() => {
     fetch("https://in.bmscdn.com/m6/static/interview-mock/data.json")
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
       .then((data) => {
         setData(data);
+      })
+      .catch((error) => {
+        setError(error.toString());
       });
   }, []);
 
   useEffect(() => {
-    if(data && Object.keys(data).length > 0){
+    if (data && Object.keys(data).length > 0) {
       const filterMovies = () => {
         if (!data || !data.moviesData) return [];
-    
+
         let movies = Object.values(data.moviesData).filter((movie) => {
           return (
             (selectedLanguages.length === 0 ||
@@ -48,7 +57,7 @@ function App() {
             movie?.EventTitle?.toLowerCase()?.includes(searchTerm.toLowerCase())
           );
         });
-    
+
         switch (sortCriteria) {
           case "newest":
             return movies.sort(
@@ -72,15 +81,12 @@ function App() {
     }
   }, [data, selectedLanguages, selectedGenres, searchTerm, sortCriteria]);
 
-  
-
   const clearAllFilters = () => {
     setSelectedLanguages([]);
     setSelectedGenres([]);
     setSearchTerm("");
     setSortCriteria("newest");
   };
-
 
   return (
     <div className="App">
@@ -109,6 +115,8 @@ function App() {
         onClearAll={clearAllFilters}
       />
 
+      {error && <div className="error-message">{error}</div>}
+
       <InfiniteScroll
         dataLength={moviesToShow}
         next={() => setMoviesToShow((prev) => prev + 10)}
@@ -132,7 +140,6 @@ function App() {
           movie={selectedMovie}
         />
       )}
-
     </div>
   );
 }
