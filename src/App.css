@@ -89,7 +89,7 @@
   height: 40px;
   margin-left: -20px; /* Half of width */
   margin-top: -20px; /* Half of height */
-  background-image: url("./resources/play.png");
+  background-image: url("./assets/play.png");
   background-size: cover;
   cursor: pointer;
 }
@@ -143,6 +143,11 @@
   display: flex;
   gap: 0.25rem;
   font-size: 1.5rem;
+  align-items: center;
+}
+
+.rating-votes {
+  font-size: 0.6em;
 }
 
 /* Trailer Modal styles */

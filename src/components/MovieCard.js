@@ -1,5 +1,5 @@
 import React from "react";
-
+import { formatVoteCount } from "../utils/utilities";
 //Movie Card Component
 const MovieCard = ({ movie, onPlayClicked }) => {
 
@@ -28,12 +28,7 @@ const MovieCard = ({ movie, onPlayClicked }) => {
     return "👎";
   };
 
-  //Number formating for votes
-  function formatVoteCount(count) {
-    if (count < 1_000) return `${count}`;
-    if (count < 1_000_000) return `${(count / 1_000).toFixed(1)}K`;
-    return `${(count / 1_000_000).toFixed(2)}M`;
-  }
+  
 
   //backup image incase of the image is undefined
   const imageUrl = movie?.EventImageUrl || defaultImageURL;

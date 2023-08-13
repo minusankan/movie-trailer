@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-function Header() {
+const Header = () => {
     return (
         <div className="header">
             Movie Trailer Website

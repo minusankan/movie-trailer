@@ -1,4 +1,5 @@
 import React from "react";
+import { formatVoteCount } from "../utils/utilities";
 
 //Move Trailer PopUp
 const MovieTrailerPopup = ({ onClick, movie }) => {
@@ -32,7 +33,7 @@ const MovieTrailerPopup = ({ onClick, movie }) => {
         </div>
         <div className="trailer-description">
           <h3>{movie.EventTitle}</h3>
-          <div className="rating-stars">{ratingComponent()}</div>
+          <div className="rating-stars">{ratingComponent()} <span className={"rating-votes"}>{`(${formatVoteCount(movie.ratings.totalWTSCount)} votes)`} </span></div>
           <div className="tag-container">
             {movie?.EventGenre?.split("|").map((genre) => (
               <div className="tag">{genre}</div>

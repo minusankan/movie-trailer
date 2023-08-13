@@ -1,7 +1,7 @@
 import React from "react";
 import MultiSelectDropdown from "./MultiSelect/MultiselectDropdown";
 
-function Filters({
+const Filters = ({
   languages,
   genres,
   selectedLanguages,
@@ -13,7 +13,7 @@ function Filters({
   sortCriteria,
   setSortCriteria,
   onClearAll,
-}) {
+}) => {
   return (
     <div className="filters">
       <div className="filter">
